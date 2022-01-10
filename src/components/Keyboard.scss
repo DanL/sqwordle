@@ -1,0 +1,101 @@
+#keyboard {
+  text-align: center;
+}
+
+.key {
+  font-size: 14pt;
+  cursor: default;
+  display: inline-block;
+
+  /* Renders as roughly 30x30 for a single character */
+  padding: 2px 8px;
+
+  /* Keeps text from getting selected when clicking a button rapidly */
+  user-select: none;
+}
+
+#keyboard-main {
+  margin-bottom: 20px;
+
+  .keyboard-row:first-child .key:first-child {
+    border-radius: 5px 0 0 0;
+  }
+
+  .keyboard-row:first-child .key:last-child {
+    border-radius: 0 5px 0 0;
+  }
+
+  .keyboard-row:last-child .key:first-child {
+    border-radius: 0 0 0 5px;
+  }
+
+  .keyboard-row:last-child .key:last-child {
+    border-radius: 0 0 5px 0;
+  }
+
+  .key {
+    $borderDark: 2px solid #0062c1;
+    $borderLight: 2px solid #5ea1e4;
+
+    text-shadow: 1px 1px 1px black;
+    border-top: $borderLight;
+    border-right: $borderDark;
+    border-bottom: $borderDark;
+    border-left: $borderLight;
+    background-color: #00a9ee;
+
+    &:active {
+      border-top: $borderDark;
+      border-right: $borderLight;
+      border-bottom: $borderLight;
+      border-left: $borderDark;
+    }
+
+    color: #eee;
+
+    &-is-exact {
+      color: #2af92a;
+      text-shadow: 1px 1px 1px #025a02;
+    }
+
+    &-is-partial {
+      color: #f9f90e;
+      text-shadow: 1px 1px 1px #7a7a05;
+    }
+
+    &-does-not-match {
+      color: #5cc2eb;
+      text-shadow: 1px 1px 1px #244d5e;
+    }
+  }
+}
+
+#keyboard-controls {
+  .key:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  .key:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+}
+
+#keyboard-controls .key {
+  $borderDark: 1px solid #ad8802;
+  $borderLight: 1px solid #fff0b9;
+
+  background-color: #ffc900;
+  border-top: $borderLight;
+  border-right: $borderDark;
+  border-bottom: $borderDark;
+  border-left: $borderLight;
+  color: #2c2301;
+  text-shadow: none;
+
+  &:active {
+    border-top: $borderDark;
+    border-right: $borderLight;
+    border-bottom: $borderLight;
+    border-left: $borderDark;
+  }
+}

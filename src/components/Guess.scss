@@ -1,0 +1,144 @@
+$size: 335px;
+$radius: 35px;
+
+.fake-guess {
+  width: $size;
+  border-radius: $radius 7px 7px $radius;
+  background-color: #eee;
+  margin: 15px auto;
+  height: 75px;
+}
+
+.guess {
+  display: flex;
+  width: $size;
+  border-radius: $radius 7px 7px $radius;
+  background-color: rgb(0, 110, 255);
+  margin: 15px auto;
+  font-weight: bold;
+
+  .info {
+    flex-grow: 1;
+    margin: 3px 10px 3px 5px;
+  }
+
+  .avatar {
+    background-color: #eee;
+    margin: 5px;
+    border-radius: $radius;
+    width: 65px;
+    height: 65px;
+
+    img {
+      width: 75px;
+      margin-left: -5px;
+      margin-top: -8px;
+    }
+
+    &:hover img {
+      animation: infinite spinny 1.5s linear;
+    }
+
+    @keyframes spinny {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(20deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(-20deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  .letter-box {
+    display: inline-block;
+    width: 20px;
+    line-height: 25px;
+    text-align: center;
+
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  .letter {
+    font-size: 14pt;
+    text-shadow: 1px 1px 1px black;
+
+    &-is-exact {
+      color: #2af92a;
+      text-shadow: 1px 1px 1px #025a02;
+    }
+
+    &-is-partial {
+      color: #f9f90e;
+      text-shadow: 1px 1px 1px #7a7a05;
+    }
+
+    &-does-not-match {
+      color: #5cc2eb;
+      text-shadow: 1px 1px 1px #244d5e;
+    }
+  }
+
+  .hp-bar {
+    display: flex;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 3px;
+
+    .hp-bar-label {
+      font-size: 9pt;
+      padding-right: 3px;
+    }
+
+    .hp-bar-label-gradient {
+      // https://www.cssportal.com/css-text-gradient-generator/
+      background: #ffff00;
+      background: linear-gradient(to bottom, #ffff00 0%, #cf7344 81%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hp-bar-fill {
+      flex-grow: 1;
+      background-color: green;
+
+      // https://cssgradient.io/
+      background: rgb(0, 154, 14);
+      background: linear-gradient(
+        180deg,
+        rgba(0, 154, 14, 1) 0%,
+        rgba(0, 241, 14, 1) 50%,
+        rgba(0, 154, 14, 1) 100%
+      );
+    }
+  }
+
+  .stats {
+    font-size: 14pt;
+    text-shadow: 1px 1px 1px black;
+    color: #eee;
+    display: flex;
+
+    &-level,
+    &-hp {
+      flex-grow: 1;
+      font-size: 9pt;
+      padding: 3px;
+    }
+
+    &-hp {
+      text-align: right;
+    }
+  }
+}

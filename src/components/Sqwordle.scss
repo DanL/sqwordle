@@ -1,0 +1,138 @@
+body,
+input,
+button {
+  font-family: 'Fira Code', monospace;
+}
+
+#logo {
+  margin-bottom: 20px;
+  text-align: center;
+
+  img {
+    width: 300px;
+  }
+
+  #logo-text {
+    margin: -30px 0 0 127px;
+    color: #3059a4;
+  }
+}
+
+#pokedex {
+  $outerRadius: 25px;
+  $innerRadius: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0 auto;
+  height: 306px;
+
+  #pokedex-left {
+    background-color: #f30000;
+    border-radius: $outerRadius 0 0 $outerRadius;
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+
+    &-inner {
+      background-color: #fff;
+      border-radius: $innerRadius;
+      padding: 0 10px;
+    }
+  }
+
+  #pokedex-right {
+    background-color: #f30000;
+    border-radius: 0 $outerRadius $outerRadius 0;
+    min-width: 300px;
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+
+    &-inner {
+      box-shadow: inset -3px 3px 3px #00000050;
+      border-radius: 0 $innerRadius $innerRadius 0;
+      border-style: solid;
+      border-color: #f04747;
+      border-width: 0 0 1px 1px;
+      padding: 15px;
+      width: 100%;
+    }
+  }
+}
+
+#the-form {
+  text-align: center;
+}
+
+#current-guess {
+  background-color: #000;
+  border: none;
+  font-size: 14pt;
+  font-family: 'Orbitron', monspace;
+  color: #f30000;
+  letter-spacing: 6px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  $border: 2px solid #9d2c2c;
+
+  border-top: $border;
+  border-left: $border;
+}
+
+#guess-container {
+  height: 286px;
+  overflow-y: scroll;
+}
+
+#message {
+  width: 650px;
+  margin: 20px auto;
+  padding: 3px;
+  border: 2px solid #297aca;
+  background-color: #5ea1e4;
+  border-radius: 10px;
+
+  &-inner {
+    background-color: #eff2f5;
+    border-radius: 6px;
+    padding: 10px;
+    color: #0062c1;
+    text-shadow: 1px 1px 1px #aec9e5;
+  }
+}
+
+#copyright {
+  font-size: 10pt;
+  text-align: center;
+  color: #aaa;
+
+  a {
+    color: #aaa;
+
+    &:hover {
+      color: #555;
+    }
+  }
+}
+
+#error,
+#share {
+  font-size: 10pt;
+  text-shadow: 1px 1px 1px #994e4e;
+  text-align: center;
+  color: #ffeeee;
+}
+
+#error {
+  margin-top: 12px;
+}
+
+#share {
+  text-align: center;
+  overflow-y: auto;
+  height: 260px;
+}
