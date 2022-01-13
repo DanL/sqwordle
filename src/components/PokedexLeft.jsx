@@ -10,7 +10,7 @@ export default function PokedexLeft({ guesses, answerName }) {
     scrollToBottom()
   }, [guesses])
 
-  // Show 4 empty guesses to start
+  // Show 3 empty guesses to start
   const guessesWithFiller = Object.values({
     ...[{ text: '' }, { text: '' }, { text: '' }],
     ...guesses,
