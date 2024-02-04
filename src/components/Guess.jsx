@@ -19,14 +19,20 @@ export default function Guess({ answer, guess, level }) {
     thumbnail: `./pokemon.json/thumbnails/${id}.png`,
   }
 
+  // Received a DMCA takedown notice for the use of images,
+  // so I'm leaving this code here in case you want to try it locally.
+  const avatar = (
+    <a
+      className="avatar"
+      href={`https://bulbapedia.bulbagarden.net/wiki/${guess.pokemon.name[locale]}_(Pok%C3%A9mon)`}
+    >
+      <img src={fileNames.image} alt="" />
+    </a>
+  )
+
   return (
     <div className="guess">
-      <a
-        className="avatar"
-        href={`https://bulbapedia.bulbagarden.net/wiki/${guess.pokemon.name[locale]}_(Pok%C3%A9mon)`}
-      >
-        <img src={fileNames.image} alt="" />
-      </a>
+      {/* {avatar} */}
       <div className="info">
         <div>
           {formattedGuess.map((letter, index) => (
@@ -37,7 +43,7 @@ export default function Guess({ answer, guess, level }) {
                 'letter',
                 letter.isExact && 'letter-is-exact',
                 letter.isPartial && !letter.isExact && 'letter-is-partial',
-                letter.doesNotMatch && 'letter-does-not-match'
+                letter.doesNotMatch && 'letter-does-not-match',
               )}
             >
               {letter.text}
