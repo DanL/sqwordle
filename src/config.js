@@ -1,5 +1,3 @@
-export const rootNodeId = 'sqwordle-root'
-
 export const locale = 'english'
 
 export const myEmail = {

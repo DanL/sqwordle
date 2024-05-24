@@ -1,16 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import Sqwordle from './components/Sqwordle'
 
-import { rootNodeId } from './config'
-
 const rootNode = document.createElement('div')
-rootNode.id = rootNodeId
 document.body.prepend(rootNode)
 
-ReactDOM.render(
+const root = createRoot(rootNode)
+root.render(
   <React.StrictMode>
     <Sqwordle />
   </React.StrictMode>,
-  rootNode
 )
