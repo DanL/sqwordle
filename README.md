@@ -4,7 +4,7 @@ Sqwordle is a Pokémon-themed knockoff of [Wordle](https://www.powerlanguage.co.
 
 # Running the App
 
-- Use `Node.js v14` since it's recommended to only use an Active LTS release for production.
+- Use an Active LTS release since it's recommended for production.
 
   - See https://nodejs.org/en/about/releases/
 
@@ -16,6 +16,12 @@ Sqwordle is a Pokémon-themed knockoff of [Wordle](https://www.powerlanguage.co.
 Assets should now be served from [https://localhost:8080](https://localhost:8080).
 
 Access the site by opening `dev.html` in your browser.
+
+# Upgrading Node
+
+- Run `nvm install $version`, where `$version` is a newer Active LTS release
+- Run `nvm use $version` to switch to the newly-installed version
+- Update `.nvmrc` with `$version`
 
 ## Configuring VSCode
 
