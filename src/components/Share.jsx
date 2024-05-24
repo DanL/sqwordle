@@ -14,14 +14,15 @@ function guessToEmoji(answerName, text) {
 }
 
 export default function Share({
-  todaysNumber,
+  // todaysNumber,
   answerName,
   guesses,
   possibleAnswers,
 }) {
   return (
     <div id="share">
-      Sqwordle #{todaysNumber} {guesses.length}/{possibleAnswers.length}
+      Sqwordle {guesses.length}/{possibleAnswers.length}
+      <br />- {answerName} -
       {guesses.map(({ text }) => (
         <div key={text}>{guessToEmoji(answerName, text)}</div>
       ))}

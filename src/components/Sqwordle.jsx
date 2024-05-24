@@ -1,8 +1,8 @@
 import { formatISO } from 'date-fns'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { locale } from '../config'
 import pokedex from '../../pokemon.json/pokedex.json'
-import dailyChallenge from '../dailyChallenge.json'
+// import dailyChallenge from '../dailyChallenge.json'
 import contactMe from '../lib/contactMe'
 import Share from './Share'
 import PokedexLeft from './PokedexLeft'
@@ -10,15 +10,34 @@ import PokedexRight from './PokedexRight'
 
 import './Sqwordle.scss'
 
+// Thanks MDN for the cool function
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min)
+  const maxFloored = Math.floor(max)
+  // The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
+}
+
 export default function Sqwordle() {
   const [guesses, setGuesses] = useState([])
+  const [answer, setAnswer] = useState()
 
-  const today = formatISO(new Date(), { representation: 'date' })
-  const todaysChallenge = dailyChallenge[today]
-  const todaysNumber =
-    Object.entries(dailyChallenge).findIndex(([day]) => day === today) + 1
+  useEffect(() => {
+    const selectedPokemon = pokedex[getRandomInt(0, pokedex.length)]
+    setAnswer(selectedPokemon)
+  }, [])
 
-  const answer = pokedex.find((pokemon) => pokemon.id === todaysChallenge)
+  // We've already gone through every Pokemon, so we'll just pick a random one every time the page loads
+  //
+  // const today = formatISO(new Date(), { representation: 'date' })
+  // const todaysChallenge = dailyChallenge[today]
+  // const todaysNumber =
+  //   Object.entries(dailyChallenge).findIndex(([day]) => day === today) + 1
+  // const answer = pokedex.find((pokemon) => pokemon.id === todaysChallenge)
+
+  // Need to let `setAnswer` get called and rerender
+  if (answer === undefined) return <div></div>
+
   const answerName = answer.name[locale].toUpperCase()
 
   const possibleAnswers = pokedex
@@ -54,7 +73,7 @@ export default function Sqwordle() {
             )}
             {aWinnerIsYou && (
               <Share
-                todaysNumber={todaysNumber}
+                // todaysNumber={todaysNumber}
                 answerName={answerName}
                 guesses={guesses}
                 possibleAnswers={possibleAnswers}
@@ -66,7 +85,8 @@ export default function Sqwordle() {
       <div id="message">
         <div id="message-inner">
           {/* The range is 5-10 characters */}
-          Welcome back, trainer! It's day #{todaysNumber}.
+          Welcome back, trainer!
+          {/* It's day #{todaysNumber}. */}
           <br />
           There are {possibleAnswers.length - guesses.length} possible{' '}
           {answerName.length}
