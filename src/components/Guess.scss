@@ -20,6 +20,8 @@ $radius: 35px;
   .info {
     flex-grow: 1;
     margin: 3px 10px 3px 5px;
+    // Use a larger margin-left when Pokemon sprites are hidden
+    margin-left: 22px;
   }
 
   .avatar {
